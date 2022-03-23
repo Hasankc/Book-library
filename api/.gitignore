@@ -39,3 +39,4 @@ dist/**/*
 
 *.swo
 *.swp
+.env

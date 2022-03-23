@@ -1,0 +1,1 @@
+declare models 'passport-google-id-token'

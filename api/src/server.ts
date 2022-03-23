@@ -1,3 +1,7 @@
+if(process.env.NODE_ENV !== 'production') {
+  require('dotenv').parse()
+}
+
 import errorHandler from 'errorhandler'
 import mongoose from 'mongoose'
 
@@ -7,8 +11,7 @@ import logger from './util/logger'
 
 const mongoUrl = MONGODB_URI
 
-mongoose
-  .connect(mongoUrl, {
+mongoose.connect(mongoUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
