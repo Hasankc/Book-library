@@ -1,47 +1,47 @@
-import Movie, { MovieDocument } from '../models/Movie'
+import Author, { AuthorDocument } from '../models/authors'
 import { NotFoundError } from '../helpers/apiError'
 
-const create = async (movie: MovieDocument): Promise<MovieDocument> => {
-  return movie.save()
+const create = async (author: AuthorDocument): Promise<AuthorDocument> => {
+  return author.save()
 }
 
-const findById = async (movieId: string): Promise<MovieDocument> => {
-  const foundMovie = await Movie.findById(movieId)
+const findById = async (authorId: string): Promise<AuthorDocument> => {
+  const foundAuthor = await Author.findById(authorId)
 
-  if (!foundMovie) {
-    throw new NotFoundError(`Movie ${movieId} not found`)
+  if (!foundAuthor) {
+    throw new NotFoundError(`Author ${authorId} not found`)
   }
 
-  return foundMovie
+  return foundAuthor
 }
 
-const findAll = async (): Promise<MovieDocument[]> => {
-  return Movie.find().sort({ name: 1, publishedYear: -1 })
+const findAll = async (): Promise<AuthorDocument[]> => {
+  return Author.find().sort({ firstName: 1})
 }
 
 const update = async (
-  movieId: string,
-  update: Partial<MovieDocument>
-): Promise<MovieDocument | null> => {
-  const foundMovie = await Movie.findByIdAndUpdate(movieId, update, {
+  authorId: string,
+  update: Partial<AuthorDocument>
+): Promise<AuthorDocument | null> => {
+  const foundAuthor = await Author.findByIdAndUpdate(authorId, update, {
     new: true,
   })
 
-  if (!foundMovie) {
-    throw new NotFoundError(`Movie ${movieId} not found`)
+  if (!foundAuthor) {
+    throw new NotFoundError(`Author ${authorId} not found`)
   }
 
-  return foundMovie
+  return foundAuthor
 }
 
-const deleteMovie = async (movieId: string): Promise<MovieDocument | null> => {
-  const foundMovie = Movie.findByIdAndDelete(movieId)
+const deleteAuthor = async (authorId: string): Promise<AuthorDocument | null> => {
+  const foundAuthor = Author.findByIdAndDelete(auhtorId)
 
-  if (!foundMovie) {
-    throw new NotFoundError(`Movie ${movieId} not found`)
+  if (!foundAuthor) {
+    throw new NotFoundError(`Author ${authorId} not found`)
   }
 
-  return foundMovie
+  return foundAuthor
 }
 
 export default {
@@ -49,5 +49,5 @@ export default {
   findById,
   findAll,
   update,
-  deleteMovie,
+  deleteAuthor,
 }
