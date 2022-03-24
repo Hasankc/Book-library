@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express'
 
-import Author from '../models/author'
-import AuthorService from '../services/authorService'
+import Author from '../models/authors'
+import AuthorService from '../services/authors'
 import { BadRequestError } from '../helpers/apiError'
 
 // POST
@@ -13,7 +13,7 @@ export const creatAuthors = async (
   try {
     
     const newAuthor = new Author(req.body)
-    await AuthorService.creat(newAuthor)
+    await AuthorService.create(newAuthor)
     res.json(newAuthor)
     
     } catch(error) {
