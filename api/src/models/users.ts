@@ -1,36 +1,49 @@
-import mongoose, { Document } from 'mongoose'
+import mongoose, {Schema, Document } from 'mongoose'
 
 export type UserDocument = Document & {
-    _id: String
+    _id: [{ type: Schema.Types.ObjectId, ref: 'Person' }]
     firstName: String
     lastName: String
-    createdAt: Date
-    dob : Date
-    email: String
+    email: string
+    password : string
+    ref: 'user'
+    bookBorrowed: {
+      bookId: string
+      dayBorrow: Date
+      dayReturn: Date
+    }[]
+    
 }
 
 const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
-    index: true,
+    required: true,
   },
   lastName: {
     type: String,
     index: true,
   },
-  createdAt: {
-      type: Date,
-      default: Date.now,    
-  },
-  dob: {
-      type: Date,
-      required: true,
-  },
+  
   email: {
       type: String,
       unique: true,
   },
 
+  password: {
+    type: String,
+    passowrd: true,
+  },
+  dateJoined: {
+    type: Date,
+    default: Date.now,
+
+  },
+  bookBorrowed: [
+    {
+      bookId: {type: mongoose.Types.ObjectId, ref: 'Book'},
+    },
+,  ]
 })
 
 export default mongoose.model<UserDocument>('user', userSchema)

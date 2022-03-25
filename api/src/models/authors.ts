@@ -1,37 +1,36 @@
 /* eslint-disable @typescript-eslint/member-delimiter-style */
-import mongoose, { Document } from 'mongoose'
+import mongoose, {Schema, Document } from 'mongoose'
 
-export type MovieDocument = Document & {
-  _id: String
-  name: string
-  publishedYear: number
-  genres: string[]
-  duration: number
-  rating: number
-  characters: string[]
+export type AuthorDocument = Document & {
+  __id: String
+  firstName: string
+  lastName: string
+  email: string
+  bookId: string[]
+  
 }
 
-const movieSchema = new mongoose.Schema({
-  name: {
+const AuthorSchema = new mongoose.Schema({
+  firstName: {
     type: String,
+    required: true,
     index: true,
   },
-  publishedYear: {
-    type: Number,
+  lastName: {
+    type: String,
     required: true,
-    min: 1900,
+    
+    
   },
-  genres: [String],
-  duration: {
-    type: Number,
+  
+  email: {
+    type: String,
     required: true,
-    min: 1,
+    
   },
-  rating: {
-    type: Number,
-    min: 0,
-  },
-  characters: [String],
+  bookId: [{
+    type: mongoose.Types.ObjectId, ref: 'Book'
+  }],
 })
 
-export default mongoose.model<MovieDocument>('Movie', movieSchema)
+export default mongoose.model<AuthorDocument>('Author', AuthorSchema)
