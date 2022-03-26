@@ -1,20 +1,21 @@
 import express from 'express'
 
 import {
-  createMovie,
-  findById,
-  deleteMovie,
   findAll,
-  updateMovie,
-} from '../controllers/authors'
+  findById,
+  createBook,
+  updateBook,
+  deleteBook,
+} from '../controllers/books'
 
 const router = express.Router()
 
-// Every path we define here will get /api/v1/movies prefix
+// Every path we define here will get /api/v1/book
+router.post('/', createBook)
 router.get('/', findAll)
-router.get('/:movieId', findById)
-router.put('/:movieId', updateMovie)
-router.delete('/:movieId', deleteMovie)
-router.post('/', createMovie)
+router.get('/:bookId', findById)
+router.put('/:bookId', updateBook)
+router.delete('/:bookId', deleteBook)
+
 
 export default router

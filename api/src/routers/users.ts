@@ -1,11 +1,21 @@
-import express from 'express'
+import express  from "express";
 
-import {findAllUsers, creatUser} from '../controllers/user'
+import {
+    findAll,
+    findById,
+    createUser,
+    updateUser,
+    deleteUser,
+    
+} from '../controllers/users'
 
 const router = express.Router()
 
-// Every path we define here will get /api/v1/movies prefix
-router.get('/', findAllUsers)
-router.post('/', creatUser)
+//Routes
+router.post('/', createUser)
+router.get('/', findAll)
+router.get('/:userId', findById)
+router.put('/:userId', updateUser)
+router.delete('/:userId', deleteUser)
 
 export default router

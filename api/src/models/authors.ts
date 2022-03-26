@@ -29,7 +29,8 @@ const AuthorSchema = new mongoose.Schema({
     
   },
   bookId: [{
-    type: mongoose.Types.ObjectId, ref: 'Book'
+    type: mongoose.Types.ObjectId,
+     ref: 'Book'
   }],
 })
 

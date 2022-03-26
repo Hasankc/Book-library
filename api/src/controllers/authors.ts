@@ -5,7 +5,7 @@ import AuthorService from '../services/authors'
 import { BadRequestError } from '../helpers/apiError'
 
 // POST
-export const creatAuthors = async (
+export const creatAuthor = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -61,7 +61,7 @@ export const deleteAuthor = async (
 }
 
 // Get Author
-export const findId = async (req: Request, res: Response, next: NextFunction) => {
+export const findById = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const {firstName, lastName, bithYear, books} = req.body
     try {
@@ -78,7 +78,11 @@ export const findId = async (req: Request, res: Response, next: NextFunction) =>
 
 
 // GET 
-export const findAll = async (req: Request, res: Response, next: NextFunction) => {
+export const findAll = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     res.json(await AuthorServices.findAll())
   } catch (error) {
