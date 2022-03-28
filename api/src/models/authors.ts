@@ -1,13 +1,11 @@
 /* eslint-disable @typescript-eslint/member-delimiter-style */
-import mongoose, {Schema, Document } from 'mongoose'
+import mongoose, {Schema, ObjectId, Document } from 'mongoose'
 
 export type AuthorDocument = Document & {
-  __id: String
   firstName: string
   lastName: string
   email: string
-  bookId: string[]
-  
+  bookId: [Schema.Types.ObjectId]
 }
 
 const AuthorSchema = new mongoose.Schema({
@@ -19,14 +17,11 @@ const AuthorSchema = new mongoose.Schema({
   lastName: {
     type: String,
     required: true,
-    
-    
   },
   
   email: {
     type: String,
     required: true,
-    
   },
   bookId: [{
     type: mongoose.Types.ObjectId,

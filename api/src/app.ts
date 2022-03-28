@@ -5,7 +5,7 @@ import dotenv from 'dotenv'
 
 import booksRouter from './routers/books'
 import authorsRouter from './routers/authors'
-import usersRouter from './routers/user'
+import usersRouter from './routers/users'
 import apiErrorHandler from './middlewares/apiErrorHandler'
 import apiContentType from './middlewares/apiContentType'
 

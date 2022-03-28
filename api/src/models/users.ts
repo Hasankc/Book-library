@@ -6,6 +6,7 @@ export type UserDocument = Document & {
     lastName: String
     email: string
     password : string
+    isAdmin: boolean
     ref: 'user'
     bookBorrowed: {
       bookId: string
@@ -34,6 +35,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     passowrd: true,
   },
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
   dateJoined: {
     type: Date,
     default: Date.now,
@@ -44,6 +49,7 @@ const userSchema = new mongoose.Schema({
       bookId: {type: mongoose.Types.ObjectId, ref: 'Book'},
     },
 ,  ]
+   
 })
 
 export default mongoose.model<UserDocument>('user', userSchema)

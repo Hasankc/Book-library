@@ -9,7 +9,7 @@ const findById = async (UserId: string): Promise<UserDocument> => {
   const foundUser = await User.findById(UserId)
 
   if (!foundUser) {
-    throw new NotFoundError(`User ${userkId} not found`)
+    throw new NotFoundError(`User ${userId} not found`)
   }
 
   return foundUser
