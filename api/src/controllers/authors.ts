@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express'
 
 import Author from '../models/authors'
 import AuthorService from '../services/authors'
-import { BadRequestError } from '../helpers/apiError'
+import { BadRequestError } from '../../helpers/apiError'
 
 // POST
 export const creatAuthor = async (
@@ -23,7 +23,10 @@ export const creatAuthor = async (
         next(error)
       }
     }
+  }
+
     // Put handeler for the end-point 
+
    export const updateAuthor = async ( req: Request, res: Response, next: NextFunction) => {
      try {
        const update = req.body
@@ -39,7 +42,7 @@ export const creatAuthor = async (
        }
      }
    }
-        }
+
 
 
 // Delete
@@ -61,11 +64,11 @@ export const deleteAuthor = async (
 }
 
 // Get Author
-export const findById = async (req: Request, res: Response, next: NextFunction) => {
+export const findId = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const {firstName, lastName, bithYear, books} = req.body
     try {
-      res.json(await AuthorService.findById(req.params.authorId))  
+      res.json(await AuthorService.findId(req.params.authorId))  
     } catch (error) {
     if (error instanceof Error && error.name == 'ValidationError') {
       next(new BadRequestError('Invalid Request', error))
@@ -78,13 +81,14 @@ export const findById = async (req: Request, res: Response, next: NextFunction) 
 
 
 // GET 
+
 export const findAll = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    res.json(await AuthorServices.findAll())
+    res.json(await AuthorService.findAll())
   } catch (error) {
     if (error instanceof Error && error.name == 'ValidationError') {
       next(new BadRequestError('Invalid Request', error))

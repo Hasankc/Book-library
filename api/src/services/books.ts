@@ -1,15 +1,15 @@
 import Book, { BookDocument } from '../models/books'
-import { NotFoundError } from '../helpers/apiError'
+import { NotFoundError } from '../../helpers/apiError'
 
-const create = async (author: BookDocument): Promise<BookDocument> => {
-  return author.save()
+const create = async (book: BookDocument): Promise<BookDocument> => {
+  return book.save()
 }
 
-const findById = async (BookId: string): Promise<BookDocument> => {
-  const foundAuthor = await Book.findById(BookId)
+const findById = async (bookId: string): Promise<BookDocument> => {
+  const foundBook = await Book.findById(bookId)
 
   if (!foundBook) {
-    throw new NotFoundError(`Book ${bookId} not found`)
+    throw new NotFoundError(`book ${bookId} not found`)
   }
 
   return foundBook

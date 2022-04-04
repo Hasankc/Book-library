@@ -2,8 +2,8 @@ import express  from "express";
 
 import {
     findAll,
-    findById,
-    createAuthor,
+    findId,
+    creatAuthor,
     updateAuthor,
     deleteAuthor,
     
@@ -12,9 +12,9 @@ import {
 const router = express.Router()
 
 //Routes
-router.post('/', createAuthor)
+router.post('/', creatAuthor)
 router.get('/', findAll)
-router.get('/:authorId', findById)
+router.get('/:authorId', findId)
 router.put('/:authorId', updateAuthor)
 router.delete('/:authorId', deleteAuthor)
 

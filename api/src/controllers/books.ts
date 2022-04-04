@@ -2,10 +2,10 @@ import { Request, Response, NextFunction } from 'express'
 
 import Book from '../models/books'
 import BookService from '../services/books'
-import { BadRequestError } from '../helpers/apiError'
+import { BadRequestError } from '../../helpers/apiError'
 
 // POST
-export const creatBook = async (
+export const createBook = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -23,8 +23,9 @@ export const creatBook = async (
         next(error)
       }
     }
-
+  }
     // Put handeler for the end-point 
+
    export const updateBook = async ( req: Request, res: Response, next: NextFunction) => {
      try {
        const update = req.body
@@ -40,7 +41,7 @@ export const creatBook = async (
        }
      }
    }
-        }
+      
 
 
 // Delete

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express'
-import { ForbiddenError } from 'src/helpers/apiError'
+import { ForbiddenError } from '../../helpers/apiError'
 
 
 const adminCheck = (req: Request, res: Response, next: NextFunction) => {

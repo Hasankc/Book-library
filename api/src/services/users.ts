@@ -1,15 +1,15 @@
 import User, { UserDocument } from '../models/Users'
-import { NotFoundError } from '../helpers/apiError'
+import { NotFoundError } from '../../helpers/apiError'
 
 const create = async (author: UserDocument): Promise<UserDocument> => {
-  return user.save()
+  return User.save()
 }
 
 const findById = async (UserId: string): Promise<UserDocument> => {
   const foundUser = await User.findById(UserId)
 
   if (!foundUser) {
-    throw new NotFoundError(`User ${userId} not found`)
+    throw new NotFoundError(`User ${UserId} not found`)
   }
 
   return foundUser
@@ -34,11 +34,11 @@ const update = async (
   return foundUser
 }
 
-const deleteUser = async (userId: string): Promise<UserDocument | null> => {
-  const foundBook = User.findByIdAndDelete(userId)
+const deleteUser = async (UserId: string): Promise<UserDocument | null> => {
+  const foundUser = User.findByIdAndDelete(UserId)
 
   if (!foundUser) {
-    throw new NotFoundError(`User ${userId} not found`)
+    throw new NotFoundError(`User ${UserId} not found`)
   }
 
   return foundUser

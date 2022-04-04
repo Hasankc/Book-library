@@ -1,11 +1,31 @@
 import { NextFunction, Request, Response } from "express";
-import { BadRequestError } from "../helpers/apiError";
+import { BadRequestError } from "../../helpers/apiError";
 
 import User from '../models/users'
 import UserService from '../services/users'
+import { JWT_SECRET } from '../util/secrets'
 
+
+//Google
+export const googleLogin = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const user = req.user as userDocument
+    const token = jwt.sign({ email: user?.email, id: user?._id }, JWT_SECRET)
+    res.json({ user, token })
+  } catch (error) {
+    if (error instanceof Error && error.name == 'ValidationError') {
+      next(new BadRequestError('Invalid Request', error))
+    } else {
+      next(error)
+    }
+  }
+}
 // POST
-export const creatBook = async (
+export const createUser = async (
     req: Request,
     res: Response,
     next: NextFunction
@@ -24,7 +44,8 @@ export const creatBook = async (
         }
       }
   
-      // Put handeler for the end-point 
+      // Put handeler for the end-point
+       
       export const updateUser = async (
         req: Request,
         res: Response,
@@ -33,7 +54,7 @@ export const creatBook = async (
         try {
           const update = req.body
           const userId = req.params.userId
-          const updateUser = await UserServices.update(userId, update)
+          const updateUser = await UserService.update(userId, update)
           res.json(updateUser)
         } catch (error) {
           if (error instanceof Error && error.name == 'ValidationError') {
@@ -47,7 +68,7 @@ export const creatBook = async (
   
   
   // Delete
-  export const deleteBook = async (
+  export const deleteUser = async (
     req: Request,
     res: Response,
     next: NextFunction
@@ -83,7 +104,7 @@ export const creatBook = async (
   // GET 
   export const findAll = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      res.json(await UserServices.findAll())
+      res.json(await UserService.findAll())
     } catch (error) {
       if (error instanceof Error && error.name == 'ValidationError') {
         next(new BadRequestError('Invalid Request', error))
