@@ -26,9 +26,9 @@ app.set('port', process.env.PORT || 3000)
 
 
 // Set up routers
-app.use('/users', usersRouter)
-app.use('/books', booksRouter)
-app.use('/authors', authorsRouter)
+app.use('/api/v1/users', usersRouter)
+app.use('/api/v1/authors', booksRouter)
+app.use('/api/v1/books', authorsRouter)
 // Custom API error handler
 app.use(apiErrorHandler)
 

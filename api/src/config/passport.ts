@@ -1,14 +1,14 @@
 import passport, { use } from 'passport'
 import passportLocal from 'passport-local'
 import { Request, Response, NextFunction } from 'express'
-import GoogleIdTokenStrategy from 'passport-google-id-token'
+import GoogleTokenIdStrategy from 'passport-google-id-token'
 import UserService from '../services/users'
 import InternalServerError from '../../helpers/apiError'
 import JwtStrategy from 'passport-jwt'
 import {GOOGLE_CLIENT_ID, JWT_SECRET}  from '../util/secrets'
 
 
-export const googleStrategy = new GoogleIdTokenStrategy(
+export const googleStrategy = new GoogleTokenIdStrategy(
     {
     clientId: GOOGLE_CLIENT_ID,
 
