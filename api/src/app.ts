@@ -9,7 +9,7 @@ import authorsRouter from './routers/authors'
 import usersRouter from './routers/users'
 import apiErrorHandler from './middlewares/apiErrorHandler'
 import apiContentType from './middlewares/apiContentType'
-import  {googleStrategy} from './config/passport'
+import { googleStrategy } from './config/passport'
 dotenv.config({ path: '.env' })
 const app = express()
 
@@ -23,7 +23,6 @@ passport.use(googleStrategy)
 
 // Express configuration
 app.set('port', process.env.PORT || 3000)
-
 
 // Set up routers
 app.use('/api/v1/users', usersRouter)

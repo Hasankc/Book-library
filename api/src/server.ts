@@ -1,4 +1,4 @@
-if(process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== 'production') {
   require('dotenv').parse()
 }
 
@@ -11,7 +11,8 @@ import logger from './util/logger'
 
 const mongoUrl = MONGODB_URI
 
-mongoose.connect(mongoUrl, {
+mongoose
+  .connect(mongoUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
