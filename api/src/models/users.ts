@@ -1,19 +1,16 @@
-import mongoose, {Schema, Document } from 'mongoose'
+import mongoose, { Schema, Document } from 'mongoose'
 
 export type UserDocument = Document & {
-    _id: [{ type: Schema.Types.ObjectId, ref: 'Person' }]
-    firstName: String
-    lastName: String
-    email: string
-    password : string
-    isAdmin: boolean
-    ref: 'user'
-    bookBorrowed: {
-      bookId: string
-      dayBorrow: Date
-      dayReturn: Date
-    }[]
-    
+  firstName: string
+  lastName: string
+  email: string
+  password: string
+  isAdmin: boolean
+  bookBorrowed: {
+    bookId: string
+    dayBorrow: Date
+    dayReturn: Date
+  }[]
 }
 
 const userSchema = new mongoose.Schema({
@@ -25,10 +22,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     index: true,
   },
-  
+
   email: {
-      type: String,
-      unique: true,
+    type: String,
+    unique: true,
   },
 
   password: {
@@ -42,14 +39,13 @@ const userSchema = new mongoose.Schema({
   dateJoined: {
     type: Date,
     default: Date.now,
-
   },
   bookBorrowed: [
     {
-      bookId: {type: mongoose.Types.ObjectId, ref: 'Book'},
+      bookId: { type: mongoose.Types.ObjectId, ref: 'Book' },
     },
-,  ]
-   
+    ,
+  ],
 })
 
-export default mongoose.model<UserDocument>('user', userSchema)
+export default mongoose.model<UserDocument>('User', userSchema)

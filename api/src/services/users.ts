@@ -1,8 +1,8 @@
-import User, { UserDocument } from '../models/Users'
+import User, { UserDocument } from '../models/users'
 import { NotFoundError } from '../../helpers/apiError'
 
-const create = async (author: UserDocument): Promise<UserDocument> => {
-  return User.save()
+const create = async (user: UserDocument): Promise<UserDocument> => {
+  return user.save()
 }
 
 const findById = async (UserId: string): Promise<UserDocument> => {
@@ -16,7 +16,7 @@ const findById = async (UserId: string): Promise<UserDocument> => {
 }
 
 const findAll = async (): Promise<UserDocument[]> => {
-  return User.find().sort({ firstName: 1})
+  return User.find().sort({ firstName: 1 })
 }
 
 const update = async (

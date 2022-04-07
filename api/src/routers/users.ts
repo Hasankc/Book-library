@@ -1,7 +1,7 @@
 import express from 'express'
 import passport from 'passport'
 import {
-  // findAll,
+  findAll,
   findId,
   createUser,
   updateUser,
