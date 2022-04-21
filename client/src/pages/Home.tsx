@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
-
+import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-
-import { logout, BookDocument } from '../src/redux/auth/action'
+import { logout, BookDocument } from '../redux/auth/action'
 
 function Home() {
     const [books, setBoks] = useState<BookDocument[]>([])
@@ -26,24 +25,26 @@ function Home() {
             <Link to='/login'>Login with google</Link>
             <Link to='/profile'>Profile</Link>
             <button onClick={handleLogout}>Log out</button>
-            <div style={{
+            <div style ={{
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-between',
         }}>
-              {books.map((book: { name: any; publishedYear: any; publisher: any }) => {
+              {books.map(book => {
           return (
+             
+                  
+
             <div>
               <h2>{book.name}</h2>
               <p>Published in {book.publishedYear}</p>
               <p>Published by {book.publisher}</p>
-            </div>
+              </div>
           )
         })}
-        </div>
-        </div>
-
-    )
+      </div>
+    </div>
+  )
 }
 
 export default Home

@@ -7,6 +7,7 @@ export type BookDocument = Document &{
     publishedYear: number
     quantuty: number
     genre: string
+    book: string
     authors: [{ type: Schema.Types.ObjectId, ref: 'Person' }]
     
 }
@@ -17,6 +18,10 @@ const bookSchema = new Schema({
         required: true,
         index: true,
 
+    },
+    book: {
+        type: String,
+        required: true
     },
     bookImg: {
         type: String,
@@ -41,7 +46,6 @@ const bookSchema = new Schema({
     },
     pageNum: {
             type: Number,
-            required: true,
             min: 1,
 
     },

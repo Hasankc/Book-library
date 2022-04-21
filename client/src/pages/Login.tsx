@@ -1,9 +1,8 @@
-import React from "@types/react";
 import GoogleLogin from "react-google-login";
 import axios from 'axios'
 import {useDispatch} from 'react-redux'
 import { useNavigate } from "react-router-dom";
-import {LoginSuccess} from '../src/redux/auth/action'
+import { loginSuccess } from '../redux/auth/action'
  
 function Login() {
     const dispatch = useDispatch()
@@ -18,7 +17,7 @@ function Login() {
           navigate('/ ')
         }
         localStorage.setItem('access_token', token)
-        dispatch (LoginSuccess(user))
+        dispatch (loginSuccess(user))
       } 
     return <div>
         <h1>Login with google</h1>

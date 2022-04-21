@@ -4,7 +4,7 @@ type InitialState = {
     isAuthenticated: boolean
     user: User | null
 }
-const initialState = {
+const initialState : InitialState = {
     isAuthenticated: false,
     user: null,
 }
@@ -18,14 +18,14 @@ const authReducer = (state = initialState, actions: Actions) =>{
                 user: actions.payload,
             }
             case 'LOGOUT':
-            return {
-                ...state
-                isAuthenticated: false,
-                user: null,
-            }
+                return {
+                    ...state,
+                    isAuthenticated: false,
+                    user: null,
+                }
 
             default:
-                break
+                return state
     }
 }
 export default authReducer

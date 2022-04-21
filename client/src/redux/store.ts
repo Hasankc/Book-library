@@ -4,7 +4,7 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import authReducer from './auth/reducer'
 
 const rootReducer = combineReducers({ auth: authReducer})
-export type AppState = ReturnType<Typeof rootReducer>
+export type AppState = ReturnType<typeof rootReducer>
 
 const initialState: AppState = {
     auth: {

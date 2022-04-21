@@ -11,10 +11,10 @@ import {
 import adminCheck from '../middlewares/adminCheck'
 
 const router = express.Router()
-
+//passport.authenticate('jwt', { session: false }),
 //Routes
-router.post('/', passport.authenticate('jwt', { session: false }), createUser)
-router.get('/all', findAll)
+router.post('/', createUser)
+router.get('/', findAll)
 router.get('/:userId', findId)
 router.put(
   '/:userId',

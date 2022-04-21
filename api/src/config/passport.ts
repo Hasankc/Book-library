@@ -1,11 +1,13 @@
 import passport, { use } from 'passport'
 import passportLocal from 'passport-local'
 import { Request, Response, NextFunction } from 'express'
-import GoogleTokenStrategy from 'passport-google-id-token'
+// import GoogleTokenStrategy from 'passport-google-id-token'
 import UserService from '../services/users'
 import InternalServerError from '../../helpers/apiError'
 import JwtStrategy from 'passport-jwt'
 import { GOOGLE_CLIENT_ID, JWT_SECRET } from '../util/secrets'
+
+const GoogleTokenStrategy = require('passport-google-id-token');
 
 export const googleStrategy = new GoogleTokenStrategy(
   {

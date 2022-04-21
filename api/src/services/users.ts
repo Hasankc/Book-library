@@ -44,10 +44,26 @@ const deleteUser = async (UserId: string): Promise<UserDocument | null> => {
   return foundUser
 }
 
+const findOrCreate = async (parsedToken: any) => {
+  const found = await User.findOne({ email: parsedToken.payload.email })
+
+  if (!found) {
+    const user = new User({
+      firstName: parsedToken.payload.given_name,
+      lastName: parsedToken.payload.family_name,
+      email: parsedToken.payload.email,
+    })
+    return await user.save()
+  }
+
+  return found
+}
+
 export default {
   create,
   findById,
   findAll,
   update,
   deleteUser,
+  findOrCreate
 }

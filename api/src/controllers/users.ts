@@ -32,6 +32,7 @@ export const createUser = async (
 ) => {
   try {
     const newUser = new User(req.body)
+    console.log(newUser)
     await UserService.create(newUser)
     res.json(newUser)
   } catch (error) {
