@@ -4,8 +4,9 @@ import { Schema } from "mongoose";
 
 export type BookDocument = {
   _id: String;
-  title: String;
+  name: String;
   bookImg: String;
+  publisher: String;
   publishedYear: number;
   quantuty: number;
   genre: String;
