@@ -1,4 +1,7 @@
-FROM node:alpine 
+FROM node:alpine3.15
 COPY . /client
 WORKDIR /client
-CMD npm run start-dev
+RUN npm install
+RUN npm run build
+RUN npm install -g serve
+CMD serve -s -n build 
