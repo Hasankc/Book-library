@@ -18,7 +18,7 @@ Admins can:
   <li>delete and or update users</li>
   <li>delete, update or add authors</li>
 </ul>
-
+<div>
 <h1>Technology stack</h1>
 <h2>FrontEnd</h2>
 <ul>
@@ -35,6 +35,8 @@ Admins can:
   <li>MongoDB with mongoose</li>
   <li>Heroku hosting</li>
 </ul>
+</div>
+
 
 
 
