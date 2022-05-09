@@ -20,7 +20,7 @@ Admins can:
 </ul>
 
 # Technology stack
-# FrontEnd
+<h1>FrontEnd</h1>
 <ul>
   <li>React</li>
   <li>React Hooks</li>
