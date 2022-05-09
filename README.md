@@ -18,7 +18,6 @@ Admins can:
   <li>delete and or update users</li>
   <li>delete, update or add authors</li>
 </ul>
-and more...
 
 # Technology stack
 # FrontEnd
