@@ -19,8 +19,8 @@ Admins can:
   <li>delete, update or add authors</li>
 </ul>
 
-<h1>Technology stack</h1>
-> <h2>FrontEnd</h2>
+# Technology stack
+FrontEnd
 <ul>
   <li>React</li>
   <li>React Hooks</li>
@@ -28,7 +28,7 @@ Admins can:
   <li>TypeScript</li>
 </ul>
 
-> <h2>Backend</h2>
+ Backend
 <ul>
   <li>Node</li>
   <li>Express</li>
