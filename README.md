@@ -19,16 +19,21 @@ and more...
 
 # Technology stack
 # FrontEnd
-React
-React Hooks
-React router
-Redux Toolkit
-Mui
-TypeScript
+<ul>
+  <li>React</li>
+  <li>React Hooks</li>
+  <li>React router</li>
+  <li>TypeScript</li>
+</ul>
+
 # Backend
-Node
-Express
-JWT
-MongoDB with mongoose
-Heroku hosting
+<ul>
+  <li>Node</li>
+  <li>Express</li>
+  <li>MongoDB with mongoose</li>
+  <li>Heroku hosting</li>
+</ul>
+
+
+
 
