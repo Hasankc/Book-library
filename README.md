@@ -2,19 +2,22 @@
 Fullstack platform built with Reactjs, Express, MongoDB. This app includes authentication, books, bookings, and many more features. Users can view books, log in with google, and login user can borrow, delete, and update their own profiles.
 
 # Features
-Users can;
+Users can:
+<ul>
+  <li>log in with google</li>
+  <li>view and borrow books</li>
+  <li>update and/or delete their own accounts</li>
+  <li>return borrowed books</li>
+  <li>logout</li>
+</ul>
 
-log in with google
-view and borrow books
-update and or delete their own accounts
-return borrowed books
-logout profiles
-Admins can;
-
-delete and add books
-update books
-delete and or update users
-delete, update or add authors
+Admins can:
+<ul>
+  <li>delete and add books</li>
+  <li>update books</li>
+  <li>delete and or update users</li>
+  <li>delete, update or add authors</li>
+</ul>
 and more...
 
 # Technology stack
