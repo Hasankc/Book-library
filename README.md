@@ -18,9 +18,9 @@ Admins can:
   <li>delete and or update users</li>
   <li>delete, update or add authors</li>
 </ul>
-<div>
+
 <h1>Technology stack</h1>
-<h2>FrontEnd</h2>
+> <h2>FrontEnd</h2>
 <ul>
   <li>React</li>
   <li>React Hooks</li>
@@ -28,14 +28,14 @@ Admins can:
   <li>TypeScript</li>
 </ul>
 
-<h2>Backend</h2>
+> <h2>Backend</h2>
 <ul>
   <li>Node</li>
   <li>Express</li>
   <li>MongoDB with mongoose</li>
   <li>Heroku hosting</li>
 </ul>
-</div>
+
 
 
 
